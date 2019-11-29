@@ -1,2 +1,2 @@
-include ':app', ':okhttp_example'
+include ':okhttp_example'
 rootProject.name='demo'
