@@ -8,7 +8,7 @@ android {
     defaultConfig {
         applicationId "com.zhm.example.kt_learn191218"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
