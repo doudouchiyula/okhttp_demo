@@ -2,12 +2,18 @@ package com.zhm.example.okhttp_example;
 
 import android.util.Log;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Created by huimin on 2019/11/29.
@@ -53,15 +59,33 @@ public class RequestManager {
      * Get请求
      * 同步
      */
-    public static void executeGet() {
-
+    public static void executeGet(String url) {
+        Request.Builder builder = new Request.Builder().url(url)
+                .get();
+        try {
+            mOkHttpClient.newCall(builder.build()).execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      * Get请求
      * 异步
      */
-    public static void enqueueGet() {
+    public static void enqueueGet(String url) {
+        Request.Builder builder = new Request.Builder().url(url).get();
+        mOkHttpClient.newCall(builder.build()).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+            }
+        });
 
     }
 
@@ -69,15 +93,35 @@ public class RequestManager {
      * Post请求
      * 同步
      */
-    public static void executePost() {
-
+    public static void executePost(String url) {
+        FormBody.Builder formBody = new FormBody.Builder();
+        Request.Builder builder = new Request.Builder().url(url)
+                .post(formBody.build());
+        try {
+            mOkHttpClient.newCall(builder.build()).execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      * Post请求
      * 异步
      */
-    public static void enqueuePost() {
+    public static void enqueuePost(String url) {
+        FormBody.Builder formBody = new FormBody.Builder();
+        Request.Builder builder = new Request.Builder().url(url)
+                .post(formBody.build());
+        mOkHttpClient.newCall(builder.build()).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
 
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+            }
+        });
     }
 }
