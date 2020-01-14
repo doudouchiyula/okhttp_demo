@@ -1,2 +1,2 @@
-include ':okhttp_example', ':kt_learn191218'
+include ':okhttp_example', ':kt_learn191218', ':kefuapp'
 rootProject.name='demo'

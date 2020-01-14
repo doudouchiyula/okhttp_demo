@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/kefuapp" />
             <option value="$PROJECT_DIR$/kt_learn191218" />
             <option value="$PROJECT_DIR$/okhttp_example" />
           </set>
