@@ -11,7 +11,6 @@ class HttpLogIntecepter : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val response = chain.proceed(chain.request())
         //response.body()?.string() 这个方法can only call once;
-        Log.e("okhttp-",response.body()?.string())
         return response
     }
 }

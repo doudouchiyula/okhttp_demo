@@ -15,7 +15,7 @@ class HttpClient {
         //懒加载，使用时才会加载
         val mOkHttpClient by lazy {
             val builder = OkHttpClient.Builder()
-            builder.addInterceptor(HttpLogIntecepter())
+//            builder.addInterceptor(HttpLogIntecepter())
             builder.addInterceptor(HeaderIntercepter())
             builder.connectTimeout(100L, TimeUnit.SECONDS)
             builder.readTimeout(100L, TimeUnit.SECONDS)
